@@ -19,6 +19,7 @@ btn.addEventListener("click", () => {
 createBoxes();
 
 window.addEventListener("load", () => {
-  const sound = document.getElementById("dogo");
-  sound.play();
+  setTimeout(() => {
+    document.getElementById("dogo").play();
+  }, 3000);
 });
