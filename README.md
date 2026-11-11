@@ -7,8 +7,8 @@ then folds apart when you press the button.
 
 ## Stack
 
-Plain HTML, CSS and JavaScript. No framework, no build step, no dependencies —
-an `index.html`, a `style.css`, a `script.js` and an audio clip.
+Plain HTML, CSS and JavaScript. No framework, no build step, no dependencies.
+It is an `index.html`, a `style.css`, a `script.js` and an audio clip.
 
 ## The trick
 
@@ -29,10 +29,9 @@ function createBoxes() {
 ```
 
 That one `backgroundPosition` line is why sixteen separate boxes read as a
-single continuous picture rather than sixteen copies of it — each tile shows a
-different 125px window onto the same 500px image. It is exactly the mechanism
-behind CSS sprites, which is worth recognising once so you spot it everywhere
-afterwards.
+single continuous picture rather than sixteen copies of it. Each tile shows a
+different 125px window onto the same 500px image. This is the same mechanism
+as CSS sprites.
 
 ## The animation costs nothing
 
@@ -44,20 +43,19 @@ btn.addEventListener('click', () => {
 })
 ```
 
-Everything else lives in CSS under that class — a scale, a 360-degree rotation,
-a `skewY` — with a single transition governing the timing. One class toggle,
-zero per-element JavaScript, sixteen elements animating together.
+Everything else lives in CSS under that class: a scale, a 360-degree rotation
+and a `skewY`, with a single transition governing the timing. One class toggle
+animates all sixteen elements, with no per-element JavaScript.
 
-It exists to find out how far plain CSS transforms go before an animation
-library is warranted. The answer is considerably further than most people
-assume.
+I built it to find out how far plain CSS transforms go before an animation
+library is needed.
 
 ## Known limitations
 
 - **The audio plays on a three-second timer after load**, not on interaction.
   Browsers block autoplay until the user has interacted with the page, so it
-  usually will not fire at all on a first visit — moving it onto the button
-  click would make it reliable.
+  usually will not fire on a first visit. Moving it onto the button click
+  would make it reliable.
 - **The image is hotlinked** from a remote GIF host rather than committed, so
   the demo breaks if that URL ever moves.
 - **The 125px tile size is hardcoded** to match a 500px image; the grid does
